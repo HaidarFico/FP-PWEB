@@ -79,7 +79,7 @@
                             </ul>
                             <!-- mainmenu close -->
                             <div class="menu_side_area">
-                                <a href="03_grey-login.php" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Logout</span></a>
+                                <a href="logoutInput.php" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Logout</span></a>
                                 <span id="menu-btn"></span>
                             </div>
                         </div>
