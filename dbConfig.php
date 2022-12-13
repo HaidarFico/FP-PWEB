@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
-$user = "mppl_admin";
+$user = "pweb_admin";
 $password = "admin123";
-$nama_database = "fp_mppl";
+$nama_database = "fp_pweb";
 
 $db = mysqli_connect($server, $user, $password, $nama_database);
 
