@@ -1,10 +1,10 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-12-13 06:52:11.037
+-- Last modification date: 2022-12-06 23:09:01.607
 
 -- tables
 -- Table: Admin
 CREATE TABLE Admin (
-    A_ID int NOT NULL AUTO_INCREMENT,
+    A_ID int NOT NULL,
     A_NAMA varchar(150) NULL,
     A_EMAIL varchar(50) NULL,
     A_TLP varchar(25) NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Admin (
 
 -- Table: Jasa_Karya
 CREATE TABLE Jasa_Karya (
-    JK_ID int NOT NULL AUTO_INCREMENT,
+    JK_ID int NOT NULL,
     JK_JUDUL varchar(255) NULL,
     JK_DESKRIPSI varchar(255) NULL,
     JK_HARGA int NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Jasa_Karya (
 
 -- Table: Kategori
 CREATE TABLE Kategori (
-    K_ID int NOT NULL AUTO_INCREMENT,
+    K_ID int NOT NULL,
     K_NAMA varchar(50) NULL,
     K_JMLH int NULL,
     CONSTRAINT Kategori_pk PRIMARY KEY (K_ID)
@@ -44,7 +44,7 @@ CREATE TABLE Pelanggan (
 
 -- Table: Seniman
 CREATE TABLE Seniman (
-    S_ID int NOT NULL AUTO_INCREMENT,
+    S_ID int NOT NULL,
     S_NAMA varchar(150) NULL,
     S_EMAIL varchar(150) NULL,
     S_TLP varchar(25) NULL,
@@ -56,14 +56,14 @@ CREATE TABLE Seniman (
 -- Table: Token
 CREATE TABLE Token (
     ID_Token int NOT NULL,
-    Pelanggan_P_ID int NULL,
+    Pelanggan_P_ID int NOT NULL,
     Seniman_S_ID int NULL,
     CONSTRAINT Token_pk PRIMARY KEY (ID_Token)
 );
 
 -- Table: Transaksi
 CREATE TABLE Transaksi (
-    T_ID int NOT NULL AUTO_INCREMENT,
+    T_ID int NOT NULL,
     T_STATUS int NULL,
     T_TGL timestamp NULL,
     Pelanggan_P_ID int NOT NULL,
@@ -100,6 +100,9 @@ ALTER TABLE Transaksi ADD CONSTRAINT Transaksi_Jasa_Karya FOREIGN KEY Transaksi_
 -- Reference: Transaksi_Pelanggan (table: Transaksi)
 ALTER TABLE Transaksi ADD CONSTRAINT Transaksi_Pelanggan FOREIGN KEY Transaksi_Pelanggan (Pelanggan_P_ID)
     REFERENCES Pelanggan (P_ID);
+
+-- Add foto to pelanggan (FICO)
+ALTER TABLE pelanggan ADD P_FOTO VARCHAR(255) NULL;
 
 -- End of file.
 

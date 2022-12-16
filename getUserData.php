@@ -7,7 +7,7 @@
         $pelangganID = $firstRow[1];
         $senimanID = $firstRow[2];
         if($senimanID == null){
-            // Ini berarti pelanggan lagi logged in
+            // Ini berarti pelanggan lagi logged in TODO blm ada fungsi foto di seniman
             $selectData = "SELECT * FROM pelanggan WHERE P_ID = $pelangganID";
             $secondQuery = mysqli_query($db, $selectData);
             $secondQueryFirstRow = $secondQuery->fetch_row();
