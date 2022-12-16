@@ -9,6 +9,9 @@ if(isset($_POST['Pelanggan'])) {
     $tlp = $_POST['P_TLP'];
     $bio = $_POST['P_BIO'];
     $password = $_POST['P_PASSWORD'];
+    $foto = $_FILES['P_FOTO']['name'];
+    $tmp = $_FILES['P_FOTO']['tmp_name'];
+    $filePath = './uploadedImages/' . $foto;
     if(!isPasswordValid($password)){
         die('invalid password');     
     }
@@ -24,8 +27,14 @@ if(isset($_POST['Pelanggan'])) {
     if(!isTelephoneValid($tlp)){
         die('invalid phone number');
     }
-
-    $sql = "INSERT INTO pelanggan (P_ID, P_NAMA, P_EMAIL, P_TLP, P_BIO, P_PASSWORD) VALUES ($id, '$nama', '$email', '$tlp', '$bio', '$password')";
+    if (move_uploaded_file($tmp, $filePath) == false){
+        // Failed to move photo
+        echo ('this is $foto'.$foto.'<br>');
+        echo ('this is $tmp'.$tmp.'<br>');
+        echo ('this is $filePath'.$filePath.'<br>');
+        die('failed to move photo<br>'. $foto .'<br>'.$tmp.'<br>'.$filePath);
+    }
+    $sql = "INSERT INTO pelanggan (P_ID, P_NAMA, P_EMAIL, P_TLP, P_BIO, P_PASSWORD, P_FOTO) VALUES ($id, '$nama', '$email', '$tlp', '$bio', '$password', '$foto')";
     $query = mysqli_query($db, $sql);
 
     if ($query) {

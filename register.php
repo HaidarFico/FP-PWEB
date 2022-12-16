@@ -121,7 +121,7 @@
 							
 							<div class="spacer-10"></div>
 							
-							<form name="contactForm" id='contact_form' class="form-border" method="post" action='registerInput.php'>
+							<form name="contactForm" id='contact_form' class="form-border" method="post" action='registerInput.php' enctype="multipart/form-data">
 
                                 <div class="row">
 
@@ -158,6 +158,13 @@
                                         <div class="field-set">
                                             <label>Password:</label>
                                             <input type='password' name='P_PASSWORD' id='password' placeholder="Password" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <label>Foto diri</label>
+                                            <input type='file' name='P_FOTO' id='file' placeholder="Foto" class="form-control">
                                         </div>
                                     </div>
 
