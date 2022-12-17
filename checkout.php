@@ -121,40 +121,19 @@
 							
 							<div class="spacer-10"></div>
 							
-							<form name="contactForm" id='contact_form' class="form-border" method="post" action='status.php'>
+							<form name="contactForm" id='contact_form' class="form-border" method="post" action='createCheckout.php'>
 
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="field-set">
-                                            <label>Name:</label>
-                                            <input type='text' name='name' id='name' class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Payment Method : Transfer</label>
+                                            <label>Payment Method</label>
                                             <select>
-                                                <option value="debitKredit">123123421</option>
-                                                <option value="transfer">09124423</option>
-                                                <option value="gopay">124521415</option>
+                                                <option value="debitKredit">Debit / Kredit</option>
+                                                <option value="transfer">Transfer</option>
+                                                <option value="gopay">Gopay</option>
                                                
                                             </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Username:</label>
-                                            <input type='text' name='username' id='username' class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Phone:</label>
-                                            <input type='text' name='phone' id='phone' class="form-control">
                                         </div>
                                     </div>
 
@@ -165,22 +144,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Re-enter Password:</label>
-                                            <input type='password' name='re-password' id='re-password' class="form-control">
-                                        </div>
-                                    </div>
-
 
                                     <div class="col-md-12">
 
                                         <div id='submit' class="pull-left">
                                         <button class="btn btn-primary btn-lg">Checkout</button>
                                         </div>
-
-                                        <div id='mail_success' class='success'>Your message has been sent successfully.</div>
-                                        <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
                                         <div class="clearfix"></div>
 
                                     </div>
