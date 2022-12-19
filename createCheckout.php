@@ -1,6 +1,6 @@
 <?php
 include('dbConfig.php');
-// require('fpdf/fpdf.php');
+require('./fpdf/fpdf.php');
 $firstQuery = "SELECT p.P_PASSWORD, tk.Pelanggan_P_ID FROM Pelanggan p, Token tk WHERE p.P_ID = tk.Pelanggan_P_ID";
 $queryResult = mysqli_query($db, $firstQuery);
 $passwordAndTokenFromDB = $queryResult->fetch_assoc();
@@ -17,4 +17,25 @@ $secondQueryRow = $secondQueryResult->fetch_array();
 // for($x = 0; $x < 6; $x++){
 //     echo ($secondQueryRow[$x]."<br>");
 // }
+// Start create PDF
+$pdf = new FPDF('l','mm','A5');
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',16);
+$pdf->Cell(190,7,'Struk Checkout',0,1,'C');
+
+// Memberikan space kebawah agar tidak terlalu rapat
+$pdf->Cell(10,7,'',0,1);
+$pdf->SetFont('Arial','B',10);
+$pdf->Cell(20,6,'ID', 1, 0);
+$pdf->Cell(30,6,'Nama Pelanggan',1,0);
+$pdf->Cell(50,6,'Judul Karya',1,0);
+$pdf->Cell(50,6,'Harga Karya',1,1);
+
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(20,6,$secondQueryRow['T_ID'],1,0);
+$pdf->Cell(30,6,$secondQueryRow['P_NAMA'],1,0);
+$pdf->Cell(50,6,$secondQueryRow['JK_JUDUL'],1,0); 
+$pdf->Cell(50,6,$secondQueryRow['JK_HARGA'],1,0); 
+
+$pdf->Output();
 ?>
